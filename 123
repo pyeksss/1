@@ -1,0 +1,31 @@
+\begin{problem}
+В каждой вершине треугольника по ёжику. Каждую минуту с вероятностью $0.5$ каждый ежик
+независимо от других двигается по часовой стрелке, с вероятностью
+$0.5$ — против часовой стрелки.
+Обозначим $T$ — время до встречи всех ежей в одной вершине.
+
+\begin{enumerate}
+  \item Найдите $\P(T=1)$, $\P(T=2)$, $\P(T=3)$, $\E(T)$.
+  \item Как изменятся ответы, если вероятность движения по часовой стрелке равна $p$?
+\end{enumerate}
+
+\begin{sol}
+
+Нарисуем диаграмму с изначальным расположением ежей.
+Цифры — имена ежей, буквы — названия вершин. 
+
+\begin{center}
+\begin{tikzpicture}
+\GraphInit[vstyle=Normal] 
+\SetGraphUnit{2}
+\SetVertexNormal[Shape = rectangle, LineWidth = 1pt]
+\tikzset{VertexStyle/.append  style={fill}}
+\Vertex[L={$A$, 1}]{A}
+\SOWE[L={$C$, 3}](A){C} 
+\SOEA[L={$B$, 2}](A){B} 
+\tikzset{EdgeStyle/.style={<->}}
+\Edge[label={$p$}](A)(B)
+\Edge[label={$p$}](A)(C)
+\Edge[label={$p$}](B)(C)
+\end{tikzpicture}
+\end{center}
